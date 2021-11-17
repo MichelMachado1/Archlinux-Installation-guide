@@ -263,6 +263,27 @@ make the options take effect
 # mkinitcpio -p linux
 ```
 
+## Localization
+Edit /etc/locale.gen and uncomment en_US.UTF-8 UTF-8 and other needed locales. Generate the locales by running: 
+```
+# locale-gen
+```
+Create the locale.conf file, and set the LANG variable accordingly: 
+|  /etc/locale.conf |
+|---|
+|  LANG=en_US.UTF-8 |
+
+Make the keyboard layout changes persistent in vconsole.conf:
+|  /etc/vconsole.conf |
+|---|
+|  KEYMAP=fr-latin1 |
+
+## Root password
+
+Set the root password:
+```
+# passwd
+```
 
 others SOURCES :
 https://youtu.be/DPLnBPM4DhI <br/>
