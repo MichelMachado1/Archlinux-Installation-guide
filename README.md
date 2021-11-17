@@ -60,7 +60,7 @@ Use fdisk or parted to modify partition tables. For example:
 
 |   Mount point   |   Partition   |   Partition type         |   Suggested size   |
 |   ------------- | ------------- | ---------------------    | ------------------ |
-|   /boot/efi     |   /dev/sda1   |   EFI system partition   |      +500M         |
+|   /boot/efi  or /mnt/efi     |   /dev/sda1   |   EFI system partition   |      +500M         |
 |                 |   /dev/sda2   |   Linux LVM              |       100%         |
 
 
@@ -141,7 +141,7 @@ then
 ```
 # mount /dev/volgroup0/homevol /mnt/home
 ```
-
+Create any remaining mount points (such as /mnt/efi) using mkdir and mount their corresponding volumes. 
 ```
 # mkdir /boot/EFI
 ```
@@ -149,6 +149,10 @@ then
 # mount /dev/sda1 /boot/EFI
 ```
 
+## swap
+```
+# swapon /dev/swap_partition
+```
 ## Configure the system
 ### Fstab
 
@@ -164,10 +168,31 @@ Check the resulting /mnt/etc/fstab file.
 ```
 cat /mnt/etc/fstab
 ```
-should fetch rootvol mounted at /  
-and homevol mounted at /home
+should fetch:
+
+|# /dev/mapper/volgroup0-rootvol ||||                                            | 
+| ---                            | ---               | ---   | ---         | --- |
+|UUID=6ecea935-5efa-43f3-b93b-f525887a1b34|    /     | ext4  | rw,relatime | 0 1 |
+
+|# /dev/mapper/volgroup0-homevol ||||                                            | 
+| ---                            | ---               | ---   | ---         | --- |
+|UUID=aa72e511-f2cf-46bd-abc7-9867cc92eb5c|    /home     | ext4  | rw,relatime | 0 2 |
+> note: you will have different UUID's.
 
 
+## Installing Arch Linux
+### Install essential packages
+
+
+Use the pacstrap script to install the base package, Linux kernel and firmware for common hardware: 
+```
+# pacstrap /mnt base linux linux-firmware
+```
+## Chroot
+Change root into the new system: 
+```
+# arch-chroot /mnt
+```
 
 
 
