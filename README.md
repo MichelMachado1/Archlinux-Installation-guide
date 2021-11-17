@@ -230,8 +230,31 @@ a text editor
 # pacman -S vim
 ```
 ```
-pacman -S base-devel
+# pacman -S base-devel
 ```
+wifi pakage support
+```
+# pacman  -S networkmanager wpa_supplicant wireless_tools dialog
+```
+auto start NetworkManager
+```
+# systemctl enable NetworkManager
+```
+lvm support REQUIRED for hard drive
+```
+pacman -S lvm2
+```
+
+
+
+<details><summary># vim /etc/mkinitcpio.conf</summary>
+<p>
+insert `lvm2` inside HOOKS between block and filesystems
+ 
+#### HOOKS=(base udev autodetect modconf block lvm2 filesystems keyboard fsck)
+
+</p>
+</details>
 
 
 
