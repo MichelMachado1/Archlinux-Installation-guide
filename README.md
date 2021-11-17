@@ -213,10 +213,24 @@ Use the pacstrap script to install the base package, Linux kernel and firmware f
 ```
 # pacstrap /mnt base linux linux-firmware
 ```
+> you can install linux-lts instead if linux or both
 ## Chroot
 Change root into the new system: 
 ```
 # arch-chroot /mnt
+```
+other essential packages
+```
+# pacman -S linux-headers
+```
+> you can install linux-lts-headers instead or both
+
+a text editor
+```
+# pacman -S vim
+```
+```
+pacman -S base-devel
 ```
 
 
