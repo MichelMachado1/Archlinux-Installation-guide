@@ -48,7 +48,7 @@ To verify the boot mode, list the efivars directory:
 ```
 If the command shows the directory without error, then the system is booted in UEFI mode. If the directory does not exist, the system may be booted in BIOS (or CSM) mode.
 
-##Partition the disks
+## Partition the disks
 When recognized by the live system, disks are assigned to a block device such as /dev/sda, /dev/nvme0n1 or /dev/mmcblk0. To identify these devices, use lsblk or fdisk.
 ```
 # fdisk -l
@@ -62,3 +62,68 @@ Use fdisk or parted to modify partition tables. For example:
 |   ------------- | ------------- | ---------------------    | ------------------ |
 |   /boot/efi     |   /dev/sda1   |   EFI system partition   |      +500M         |
 |                 |   /dev/sda2   |   Linux LVM              |       100%         |
+
+## Format the partitions
+format the EFI system partition to FAT32 using mkfs.fat. 
+```
+# mkfs.fat -F 32 /dev/sda1
+```
+## LVM building blocks
+> Volume operations
+
+## Physical volumes
+To create a PV on /dev/sda2, run: 
+```
+pvcreate --dataalignment 1m /dev/sda2
+```
+ --dataalignment Size[k|UNIT]
+    Align the start of a PV data area with a multiple of this number. To see the location of the first Physical Extent (PE) of an existing PV, use pvs -o +pe_start. In addition, it may be shifted by an alignment offset, see --dataalignmentoffset. Also specify an appropriate PE size when creating a VG.
+    
+## Volume groups
+### Creating a volume group
+To create a VG volgroup0 with an associated PV /dev/sda2, run: 
+```
+# vgcreate volgroup0 /dev/sda2
+``` 
+
+## Logical volumes
+### Creating a logical volume
+To create a LV rootvol in a VG volgroup0 with 30 GiB of capacity, run: 
+```
+# lvcreate -L 30GB volgroup0 -n rootvol
+```
+and, to create a LV homevol in a VG volgroup0 with the rest of capacity, run: 
+```
+# lvcreate -l 100%FREE volgroup0 -n homevol
+```
+Activate the lvm
+```
+# modprobe dm-mod
+```
+You can check the VG MyVolGroup is created using the following command: 
+```
+# vgs
+```
+(you can use `vgscan` as well)
+
+### Activating a volume group
+```
+# vgchange -a y volgroup0
+```
+or
+```
+# vgchange -ay
+```
+both give the same result.
+
+
+
+
+
+
+
+SOURCES :
+https://youtu.be/DPLnBPM4DhI
+https://wiki.archlinux.org/title/installation_guide#Pre-installation
+https://wiki.archlinux.org/title/LVM
+https://www.systutorials.com/docs/linux/man/8-pvcreate/
