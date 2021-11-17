@@ -249,9 +249,10 @@ pacman -S lvm2
 
 <details><summary># vim /etc/mkinitcpio.conf</summary>
 <p>
-insert `lvm2` inside HOOKS between block and filesystems
  
-#### HOOKS=(base udev autodetect modconf block lvm2 filesystems keyboard fsck)
+insert **lvm2** inside HOOKS between block and filesystems
+ 
+#### HOOKS=(base udev autodetect modconf block _lvm2_ filesystems keyboard fsck)
 
 </p>
 </details>
