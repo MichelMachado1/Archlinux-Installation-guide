@@ -194,6 +194,16 @@ Change root into the new system:
 ```
 # arch-chroot /mnt
 ```
+## Time zone
+
+Set the time zone:
+
+# ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
+
+Run hwclock(8) to generate /etc/adjtime:
+
+# hwclock --systohc
+
 other essential packages
 ```
 # pacman -S linux-headers
