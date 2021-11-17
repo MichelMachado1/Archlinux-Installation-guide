@@ -229,6 +229,7 @@ a text editor
 ```
 # pacman -S vim
 ```
+almost essential packages include sudo cmd
 ```
 # pacman -S base-devel
 ```
