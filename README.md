@@ -257,7 +257,10 @@ insert **lvm2** inside HOOKS between block and filesystems
 </p>
 </details>
 
-
+make the options take effect
+```
+# mkinitcpio -p linux
+```
 
 
 others SOURCES :
