@@ -130,24 +130,42 @@ to create an Ext4 file system on /dev/volgroup0/homevol, run:
 ## Mount the file systems
 Mount the root volume to /mnt. For example, if the root volume is /dev/rootvol: 
 ```
-mount /dev/volgroup0/rootvol /mnt
+# mount /dev/volgroup0/rootvol /mnt
 ```
 Mount the home volume to /mnt/home. For example, if the home volume is /dev/homevol:
 BUT fisr we have to create the home directory:
 ```
-mkdir /mnt/home
+# mkdir /mnt/home
 ```
 then
 ```
-mount /dev/volgroup0/homevol /mnt/home
+# mount /dev/volgroup0/homevol /mnt/home
 ```
 
+```
+# mkdir /boot/EFI
+```
+```
+# mount /dev/sda1 /boot/EFI
+```
 
+## Configure the system
+### Fstab
 
+Generate an fstab file: 
+```
+mkdir /mnt/etc
+```
+```
+# genfstab -U -p /mnt >> /mnt/etc/fstab
+```
 
-
-
-
+Check the resulting /mnt/etc/fstab file.
+```
+cat /mnt/etc/fstab
+```
+should fetch rootvol mounted at /  
+and homevol mounted at /home
 
 
 
