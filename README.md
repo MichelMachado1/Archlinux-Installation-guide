@@ -63,11 +63,7 @@ Use fdisk or parted to modify partition tables. For example:
 |   /boot/efi     |   /dev/sda1   |   EFI system partition   |      +500M         |
 |                 |   /dev/sda2   |   Linux LVM              |       100%         |
 
-## Format the partitions
-format the EFI system partition to FAT32 using mkfs.fat. 
-```
-# mkfs.fat -F 32 /dev/sda1
-```
+
 ## LVM building blocks
 > Volume operations
 
@@ -115,6 +111,42 @@ or
 # vgchange -ay
 ```
 both give the same result.
+
+## Format the partitions
+format the EFI system partition to FAT32 using mkfs.fat. 
+```
+# mkfs.fat -F 32 /dev/sda1
+```
+
+to create an Ext4 file system on /dev/volgroup0/rootvol, run: 
+```
+# mkfs.ext4 /dev/volgroup0/rootvol
+```
+to create an Ext4 file system on /dev/volgroup0/homevol, run: 
+```
+# mkfs.ext4 /dev/volgroup0/homevol
+```
+
+## Mount the file systems
+Mount the root volume to /mnt. For example, if the root volume is /dev/rootvol: 
+```
+mount /dev/volgroup0/rootvol /mnt
+```
+Mount the home volume to /mnt/home. For example, if the home volume is /dev/homevol:
+BUT fisr we have to create the home directory:
+```
+mkdir /mnt/home
+```
+then
+```
+mount /dev/volgroup0/homevol /mnt/home
+```
+
+
+
+
+
+
 
 
 
