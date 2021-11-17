@@ -331,21 +331,20 @@ After creating the correctly sized file, format it to swap:
 ```
 # mkswap /swapfile
 ```
+optional:
 Making a backup copy of the fstabfile in case of mistake
 ```
 # cp /etc/fstab /etc/fstab.bak
 ```
 Finally, edit the fstab configuration to add an entry for the swap file: 
+```
 echo '/swapfile none swap sw 0 0' | tee -a /etc/fstab
-
-Activate the swap file: 
 ```
-# mkswap /dev/swapfile
+activate
 ```
-## swap
+# swapon -a
 ```
-# swapon /dev/swap_partition
-```
+check with free -m
 
 SOURCES :
 https://wiki.archlinux.org/title/GRUB#Installation_2
