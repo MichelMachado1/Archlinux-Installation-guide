@@ -126,6 +126,31 @@ to create an Ext4 file system on /dev/volgroup0/homevol, run:
 ```
 # mkfs.ext4 /dev/volgroup0/homevol
 ```
+### Swap file creation
+> source: https://wiki.archlinux.org/title/Swap
+```
+# dd if=/dev/zero of=/swapfile bs=1M count=2048 status=progress
+```
+Set the right permissions (a world-readable swap file is a huge local vulnerability): 
+```
+# chmod 600 /swapfile
+```
+After creating the correctly sized file, format it to swap: 
+```
+# mkswap /swapfile
+```
+Activate the swap file: 
+```
+# mkswap /dev/swap_partition
+```
+Finally, edit the fstab configuration to add an entry for the swap file: 
+```
+/etc/fstab
+
+/swapfile none swap defaults 0 0
+
+```
+
 
 ## Mount the file systems
 Mount the root volume to /mnt. For example, if the root volume is /dev/rootvol: 
@@ -197,7 +222,7 @@ Change root into the new system:
 
 
 
-SOURCES :
+others SOURCES :
 https://youtu.be/DPLnBPM4DhI <br/>
 https://wiki.archlinux.org/title/installation_guide#Pre-installation <br/>
 https://wiki.archlinux.org/title/LVM <br/>
