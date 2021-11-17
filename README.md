@@ -126,30 +126,7 @@ to create an Ext4 file system on /dev/volgroup0/homevol, run:
 ```
 # mkfs.ext4 /dev/volgroup0/homevol
 ```
-### Swap file creation
-> source: https://wiki.archlinux.org/title/Swap
-```
-# dd if=/dev/zero of=/swapfile bs=1M count=2048 status=progress
-```
-Set the right permissions (a world-readable swap file is a huge local vulnerability): 
-```
-# chmod 600 /swapfile
-```
-After creating the correctly sized file, format it to swap: 
-```
-# mkswap /swapfile
-```
-Making a backup copy of the fstabfile in case of mistake
-```
-# cp /etc/fstab /etc/fstab.bak
-```
-Finally, edit the fstab configuration to add an entry for the swap file: 
-echo '/swapfile none swap sw 0 0' | tee -a /etc/fstab
 
-Activate the swap file: 
-```
-# mkswap /dev/swapfile
-```
 
 
 
@@ -175,10 +152,7 @@ Create any remaining mount points (such as /mnt/efi) using mkdir and mount their
 # mount /dev/sda1 /boot/EFI
 ```
 
-## swap
-```
-# swapon /dev/swap_partition
-```
+
 ## Configure the system
 ### Fstab
 
@@ -342,7 +316,36 @@ Optionally manually unmount all the partitions with umount -R /mnt: this allows 
 
 Finally, restart the machine by typing reboot: any partitions still mounted will be automatically unmounted by systemd. Remember to remove the installation medium and then login into the new system with the root account. 
 
+# AFTER REBOOT 
 
+### Swap file creation
+> source: https://wiki.archlinux.org/title/Swap
+```
+# dd if=/dev/zero of=/swapfile bs=1M count=2048 status=progress
+```
+Set the right permissions (a world-readable swap file is a huge local vulnerability): 
+```
+# chmod 600 /swapfile
+```
+After creating the correctly sized file, format it to swap: 
+```
+# mkswap /swapfile
+```
+Making a backup copy of the fstabfile in case of mistake
+```
+# cp /etc/fstab /etc/fstab.bak
+```
+Finally, edit the fstab configuration to add an entry for the swap file: 
+echo '/swapfile none swap sw 0 0' | tee -a /etc/fstab
+
+Activate the swap file: 
+```
+# mkswap /dev/swapfile
+```
+## swap
+```
+# swapon /dev/swap_partition
+```
 
 SOURCES :
 https://wiki.archlinux.org/title/GRUB#Installation_2
