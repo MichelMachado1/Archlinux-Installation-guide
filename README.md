@@ -123,7 +123,7 @@ both give the same result.
 
 
 SOURCES :
-https://youtu.be/DPLnBPM4DhI
-https://wiki.archlinux.org/title/installation_guide#Pre-installation
-https://wiki.archlinux.org/title/LVM
+https://youtu.be/DPLnBPM4DhI <br/>
+https://wiki.archlinux.org/title/installation_guide#Pre-installation <br/>
+https://wiki.archlinux.org/title/LVM <br/>
 https://www.systutorials.com/docs/linux/man/8-pvcreate/
