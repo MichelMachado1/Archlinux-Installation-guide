@@ -139,17 +139,18 @@ After creating the correctly sized file, format it to swap:
 ```
 # mkswap /swapfile
 ```
-Activate the swap file: 
+Making a backup copy of the fstabfile in case of mistake
 ```
-# mkswap /dev/swap_partition
+# cp /etc/fstab /etc/fstab.bak
 ```
 Finally, edit the fstab configuration to add an entry for the swap file: 
-```
-/etc/fstab
+echo '/swapfile none swap sw 0 0' | tee -a /etc/fstab
 
-/swapfile none swap defaults 0 0
-
+Activate the swap file: 
 ```
+# mkswap /dev/swapfile
+```
+
 
 
 ## Mount the file systems
@@ -284,8 +285,67 @@ Set the root password:
 ```
 # passwd
 ```
+recommanded: add a standard user for yourself
+```
+useradd -m -g USERS -G wheel michel
+```
+michel is my name put your name instead.
+add password for yourself
+```
+passwd michel
+```
 
-others SOURCES :
+<details><summary># visudo</summary>
+<p>
+ 
+ Uncomment to allow members of group wheel to execute any command
+#### %wheel ALL=(ALL) ALL
+
+</p>
+</details>
+
+
+
+## Boot loader
+
+Choose and install a Linux-capable boot loader. If you have an Intel or AMD CPU, enable microcode updates in addition. 
+```
+# pacman -S inter-ucode
+```
+amd-ucode for AMD processors
+source: https://wiki.archlinux.org/title/Microcode#Early_loading
+```
+# pacman -S grub efibootmgr dosfstools os-proger mtools
+```
+```
+# grub-install --target=x86_64-efi --bootloader-id=grub_uefi --recheck
+```
+source: https://wiki.archlinux.org/title/GRUB#Installation_2
+check for the locale directory
+```
+# ls -l /boot/grub
+```
+set the grub/boot screen language
+```
+# cp /usr/share/locale/en\@quot/LC_MESSAGES/grub.mo /boot/grub/locale/en.mo
+```
+generate the grub configuration file
+```
+grub-mkconfig -o /boot/grub/grub.cfg
+```
+
+## Reboot
+
+Exit the chroot environment by typing exit or pressing Ctrl+d.
+
+Optionally manually unmount all the partitions with umount -R /mnt: this allows noticing any "busy" partitions, and finding the cause with fuser.
+
+Finally, restart the machine by typing reboot: any partitions still mounted will be automatically unmounted by systemd. Remember to remove the installation medium and then login into the new system with the root account. 
+
+
+
+SOURCES :
+https://wiki.archlinux.org/title/GRUB#Installation_2
 https://youtu.be/DPLnBPM4DhI <br/>
 https://wiki.archlinux.org/title/installation_guide#Pre-installation <br/>
 https://wiki.archlinux.org/title/LVM <br/>
