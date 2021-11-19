@@ -76,7 +76,7 @@ pvcreate --dataalignment 1m /dev/sda2
 ```
  --dataalignment Size[k|UNIT]
     Align the start of a PV data area with a multiple of this number. To see the location of the first Physical Extent (PE) of an existing PV, use pvs -o +pe_start. In addition, it may be shifted by an alignment offset, see --dataalignmentoffset. Also specify an appropriate PE size when creating a VG.
-    source: https://www.systutorials.com/docs/linux/man/8-pvcreate/ <br/>
+   <br/> source: https://www.systutorials.com/docs/linux/man/8-pvcreate/ 
 ## Volume groups
 ### Creating a volume group
 To create a VG volgroup0 with an associated PV /dev/sda2, run: 
