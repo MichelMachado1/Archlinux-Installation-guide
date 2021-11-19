@@ -314,6 +314,23 @@ Make the keyboard layout changes persistent in vconsole.conf:
 |---|
 |  KEYMAP=fr-latin1 |
 
+
+## Network configuration
+
+Create the hostname file:
+```
+vim /etc/hostname
+
+myhostname
+```
+Create the hosts file
+```
+vim /etc/hosts
+
+127.0.0.1 localhost
+127.0.1.1 myhostname
+```
+
 ## Root password
 
 Set the root password:
