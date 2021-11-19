@@ -360,10 +360,8 @@ activate
 ```
 check with free -m
 
-SOURCES :
-
-https://wiki.archlinux.org/title/installation_guide <br/>
-https://youtu.be/DPLnBPM4DhI <br/>
+other sources :
+https://youtu.be/DPLnBPM4DhI 
 
 
 
