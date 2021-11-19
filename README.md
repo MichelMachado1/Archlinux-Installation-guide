@@ -1,6 +1,8 @@
 # Archlinux-Installation-guide
 Archlinux Installation guide UEFI LVM Swapfile (NO Encryption)
 
+<br/> https://wiki.archlinux.org/title/installation_guide 
+
 ## Set the keyboard layout
 The default console keymap is US. Set the azerty layout with:
 ```
