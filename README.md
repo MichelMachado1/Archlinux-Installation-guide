@@ -238,7 +238,7 @@ make the options take effect
 # mkinitcpio -p linux
 ```
 
-## Chroot
+# Chroot
 Change root into the new system: 
 ```
 # arch-chroot /mnt
