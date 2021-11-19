@@ -288,6 +288,8 @@ Set the time zone:
 # ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
 ```
 for France is Europe/Paris
+if you don't know your time zone you can set it after rebooting with `timedatectl` </br>
+https://wiki.archlinux.org/title/System_time#Time_zone
 
 Run hwclock to generate /etc/adjtime:
 ```
