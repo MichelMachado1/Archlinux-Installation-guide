@@ -69,7 +69,7 @@ https://wiki.archlinux.org/title/LVM <br/>
 > Volume operations
 
 ## Physical volumes
-https://www.systutorials.com/docs/linux/man/8-pvcreate/
+https://www.systutorials.com/docs/linux/man/8-pvcreate/ <br/>
 To create a PV on /dev/sda2, run: 
 ```
 pvcreate --dataalignment 1m /dev/sda2
