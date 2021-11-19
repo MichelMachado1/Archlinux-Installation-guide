@@ -234,9 +234,14 @@ lvm support REQUIRED for hard drive
 ```
 pacman -S lvm2
 ```
-
-
-
+Xorg provides an interface between your hardware and the graphical software you want to run.
+```
+pacman -S xorg-server
+```
+video driver
+```
+pacman -S mesa
+```
 <details><summary># vim /etc/mkinitcpio.conf</summary>
 <p>
  
@@ -362,7 +367,7 @@ passwd michel
 
 Choose and install a Linux-capable boot loader. If you have an Intel or AMD CPU, enable microcode updates in addition. 
 ```
-# pacman -S inter-ucode
+# pacman -S intel-ucode
 ```
 amd-ucode for AMD processors
 source: https://wiki.archlinux.org/title/Microcode#Early_loading
