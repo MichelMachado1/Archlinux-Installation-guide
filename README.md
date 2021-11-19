@@ -8,6 +8,12 @@ The default console keymap is US. Set the azerty layout with:
 ```
 # loadkeys fr-latin1
 ```
+## Verify the boot mode
+To verify the boot mode, list the efivars directory: 
+```
+# ls /sys/firmware/efi/efivars
+```
+If the command shows the directory without error, then the system is booted in UEFI mode. If the directory does not exist, the system may be booted in BIOS (or CSM) mode.
 
 ## Connect to the internet
 Ensure your network interface is listed and enabled, for example with ip-link: 
@@ -43,12 +49,6 @@ Use `timedatectl` to ensure the system clock is accurate:
 ```
 To check the service status, use `timedatectl status`.
 
-## Verify the boot mode
-To verify the boot mode, list the efivars directory: 
-```
-# ls /sys/firmware/efi/efivars
-```
-If the command shows the directory without error, then the system is booted in UEFI mode. If the directory does not exist, the system may be booted in BIOS (or CSM) mode.
 
 ## Partition the disks
 When recognized by the live system, disks are assigned to a block device such as /dev/sda, /dev/nvme0n1 or /dev/mmcblk0. To identify these devices, use lsblk or fdisk.
@@ -193,20 +193,6 @@ Use the pacstrap script to install the base package, Linux kernel and firmware f
 # pacstrap /mnt base linux linux-firmware
 ```
 > you can install linux-lts instead if linux or both
-## Chroot
-Change root into the new system: 
-```
-# arch-chroot /mnt
-```
-## Time zone
-
-Set the time zone:
-
-# ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
-
-Run hwclock(8) to generate /etc/adjtime:
-
-# hwclock --systohc
 
 other essential packages
 ```
@@ -251,6 +237,25 @@ make the options take effect
 ```
 # mkinitcpio -p linux
 ```
+
+## Chroot
+Change root into the new system: 
+```
+# arch-chroot /mnt
+```
+## Time zone
+
+Set the time zone:
+```
+# ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
+```
+Run hwclock(8) to generate /etc/adjtime:
+```
+# hwclock --systohc
+```
+
+
+
 
 ## Localization
 Edit /etc/locale.gen and uncomment en_US.UTF-8 UTF-8 and other needed locales. Generate the locales by running: 
