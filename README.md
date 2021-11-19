@@ -65,9 +65,11 @@ Use fdisk or parted to modify partition tables. For example:
 
 
 ## LVM building blocks
+https://wiki.archlinux.org/title/LVM <br/>
 > Volume operations
 
 ## Physical volumes
+https://www.systutorials.com/docs/linux/man/8-pvcreate/
 To create a PV on /dev/sda2, run: 
 ```
 pvcreate --dataalignment 1m /dev/sda2
@@ -357,8 +359,12 @@ activate
 check with free -m
 
 SOURCES :
-https://wiki.archlinux.org/title/GRUB#Installation_2
+
+https://wiki.archlinux.org/title/installation_guide <br/>
 https://youtu.be/DPLnBPM4DhI <br/>
-https://wiki.archlinux.org/title/installation_guide#Pre-installation <br/>
-https://wiki.archlinux.org/title/LVM <br/>
-https://www.systutorials.com/docs/linux/man/8-pvcreate/
+
+
+
+
+
+
