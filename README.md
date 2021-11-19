@@ -1,5 +1,5 @@
 # Archlinux-Installation-guide
-Archlinux Installation guide UEFI LVM Swapfile (NO Encryption)
+Archlinux Installation guide UEFI LVM swap partition (NO Encryption)
 
 <br/> https://wiki.archlinux.org/title/installation_guide 
 
