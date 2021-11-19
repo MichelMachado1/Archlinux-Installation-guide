@@ -157,31 +157,7 @@ Create any remaining mount points (such as /mnt/efi) using mkdir and mount their
 ```
 
 
-## Configure the system
-### Fstab
 
-Generate an fstab file: 
-```
-mkdir /mnt/etc
-```
-```
-# genfstab -U -p /mnt >> /mnt/etc/fstab
-```
-
-Check the resulting /mnt/etc/fstab file.
-```
-cat /mnt/etc/fstab
-```
-should fetch:
-
-|# /dev/mapper/volgroup0-rootvol ||||                                            | 
-| ---                            | ---               | ---   | ---         | --- |
-|UUID=6ecea935-5efa-43f3-b93b-f525887a1b34|    /     | ext4  | rw,relatime | 0 1 |
-
-|# /dev/mapper/volgroup0-homevol ||||                                            | 
-| ---                            | ---               | ---   | ---         | --- |
-|UUID=aa72e511-f2cf-46bd-abc7-9867cc92eb5c|    /home     | ext4  | rw,relatime | 0 2 |
-> note: you will have different UUID's.
 
 
 ## Installing Arch Linux
@@ -237,7 +213,31 @@ make the options take effect
 ```
 # mkinitcpio -p linux
 ```
+## Configure the system
+### Fstab
 
+Generate an fstab file: 
+```
+mkdir /mnt/etc
+```
+```
+# genfstab -U -p /mnt >> /mnt/etc/fstab
+```
+
+Check the resulting /mnt/etc/fstab file.
+```
+cat /mnt/etc/fstab
+```
+should fetch:
+
+|# /dev/mapper/volgroup0-rootvol ||||                                            | 
+| ---                            | ---               | ---   | ---         | --- |
+|UUID=6ecea935-5efa-43f3-b93b-f525887a1b34|    /     | ext4  | rw,relatime | 0 1 |
+
+|# /dev/mapper/volgroup0-homevol ||||                                            | 
+| ---                            | ---               | ---   | ---         | --- |
+|UUID=aa72e511-f2cf-46bd-abc7-9867cc92eb5c|    /home     | ext4  | rw,relatime | 0 2 |
+> note: you will have different UUID's.
 # Chroot
 Change root into the new system: 
 ```
@@ -249,7 +249,9 @@ Set the time zone:
 ```
 # ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
 ```
-Run hwclock(8) to generate /etc/adjtime:
+for France is Europe/Paris
+
+Run hwclock to generate /etc/adjtime:
 ```
 # hwclock --systohc
 ```
