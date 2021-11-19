@@ -3,6 +3,44 @@ Archlinux Installation guide UEFI LVM Swapfile (NO Encryption)
 
 <br/> https://wiki.archlinux.org/title/installation_guide 
 
+
+
+
+    
+        Set the console keyboard layout
+        Verify the boot mode
+        Connect to the internet
+        Update the system clock
+        Partition the disks
+        Example layouts
+        Format the partitions
+        Mount the file systems
+        Installation
+        Select the mirrors
+        Install essential packages
+   Configure the system
+        Fstab
+        Chroot
+        Time zone
+        Localization
+        Network configuration
+        Initramfs
+        Root password
+        Boot loader
+     Reboot
+     Post-installation
+
+
+
+
+
+
+
+
+
+
+
+
 ## Set the keyboard layout
 The default console keymap is US. Set the azerty layout with:
 ```
