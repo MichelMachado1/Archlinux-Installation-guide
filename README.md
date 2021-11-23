@@ -101,7 +101,8 @@ Use fdisk or parted to modify partition tables. For example:
 |   Mount point   |   Partition   |   Partition type         |   Suggested size   |
 |   ------------- | ------------- | ---------------------    | ------------------ |
 |   /boot/efi  or /mnt/efi     |   /dev/sda1   |   EFI system partition   |      +500M         |
-|                 |   /dev/sda2   |   Linux LVM              |       100%         |
+|          [SWAP] |         /dev/sda2      |           Linux swap                |      2048 MiB              |
+|                 |   /dev/sda3   |   Linux LVM              |       100%         |
 
 
 ## LVM building blocks
