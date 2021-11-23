@@ -109,20 +109,20 @@ https://wiki.archlinux.org/title/Partitioning#UEFI/GPT_layout_example
 ## Format the partitions
 https://wiki.archlinux.org/title/EFI_system_partition
 
-to create an Ext4 file system on the root partition, run: 
+to create an Ext4 file system on /dev/root_partition, run: 
 ```
-# mkfs.ext4 /dev/sda3
+# mkfs.ext4 /dev/root_partition
 ```
 Initialize swap partition with mkswap:
 ```
-# mkswap /dev/sda2
+# mkswap /dev/swap_partition
 ```
 
 https://wiki.archlinux.org/title/File_systems#Create_a_file_system
 
 an EFI system partition must contain a FAT32 file system
 ```
-# mkfs.fat -F 32 /dev/sda1
+# mkfs.fat -F 32 /dev/efi_system_partition
 ```
 
 
