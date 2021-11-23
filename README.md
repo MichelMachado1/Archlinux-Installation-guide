@@ -103,7 +103,7 @@ https://wiki.archlinux.org/title/Partitioning#UEFI/GPT_layout_example
 |   ------------- | ------------- | ---------------------    | ------------------ |
 |   /boot or /efi     |   /dev/sda1   |   EFI system partition   |      +500M         |
 |          [SWAP] |         /dev/sda2      |           Linux swap                |      2048 MiB              |
-|          /       |   /dev/sda3   |   Linux x86-64 root (/)               |       Remainder of the device       |
+|          /mnt       |   /dev/sda3   |   Linux x86-64 root (/)               |       Remainder of the device       |
 
 
 ## Format the partitions
@@ -130,95 +130,18 @@ an EFI system partition must contain a FAT32 file system
 
 
 ## Mount the file systems
-Mount the root volume to /mnt. For example, if the root volume is /dev/rootvol: 
+Mount the root volume to /mnt
 ```
-# mount /dev/volgroup0/rootvol /mnt
+# mount /dev/root_partition /mnt
 ```
-Mount the home volume to /mnt/home. For example, if the home volume is /dev/homevol:
-BUT fisr we have to create the home directory:
+mount the EFI system partition: 
 ```
-# mkdir /mnt/home
+# mount /dev/efi_system_partition /mnt/boot
 ```
-then
+Enabable the swap partition
 ```
-# mount /dev/volgroup0/homevol /mnt/home
+# swapon /dev/swap_partition
 ```
-Create any remaining mount points (such as /mnt/efi) using mkdir and mount their corresponding volumes. 
-```
-# mkdir /boot/EFI
-```
-```
-# mount /dev/sda1 /boot/EFI
-```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## LVM building blocks
-https://wiki.archlinux.org/title/LVM <br/>
-> Volume operations
-
-## Physical volumes
-
-To create a PV on /dev/sda2, run: 
-```
-pvcreate --dataalignment 1m /dev/sda2
-```
- --dataalignment Size[k|UNIT]
-    Align the start of a PV data area with a multiple of this number. To see the location of the first Physical Extent (PE) of an existing PV, use pvs -o +pe_start. In addition, it may be shifted by an alignment offset, see --dataalignmentoffset. Also specify an appropriate PE size when creating a VG.
-   <br/> source: https://www.systutorials.com/docs/linux/man/8-pvcreate/ 
-## Volume groups
-### Creating a volume group
-To create a VG volgroup0 with an associated PV /dev/sda2, run: 
-```
-# vgcreate volgroup0 /dev/sda2
-``` 
-
-## Logical volumes
-### Creating a logical volume
-To create a LV rootvol in a VG volgroup0 with 30 GiB of capacity, run: 
-```
-# lvcreate -L 30GB volgroup0 -n rootvol
-```
-and, to create a LV homevol in a VG volgroup0 with the rest of capacity, run: 
-```
-# lvcreate -l 100%FREE volgroup0 -n homevol
-```
-Activate the lvm
-```
-# modprobe dm-mod
-```
-You can check the VG MyVolGroup is created using the following command: 
-```
-# vgs
-```
-(you can use `vgscan` as well)
-
-### Activating a volume group
-```
-# vgchange -a y volgroup0
-```
-or
-```
-# vgchange -ay
-```
-both give the same result.
-
 
 
 
