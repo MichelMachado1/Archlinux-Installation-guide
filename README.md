@@ -1,5 +1,5 @@
 # Archlinux-Installation-guide
-Archlinux Installation guide UEFI LVM swap partition (NO Encryption)
+Archlinux Installation guide UEFI with swap partition
 
 <br/> https://wiki.archlinux.org/title/installation_guide 
 
@@ -97,12 +97,76 @@ Use fdisk or parted to modify partition tables. For example:
 ```
 # fdisk /dev/sda
 ```
+https://wiki.archlinux.org/title/Partitioning#UEFI/GPT_layout_example
 
 |   Mount point   |   Partition   |   Partition type         |   Suggested size   |
 |   ------------- | ------------- | ---------------------    | ------------------ |
-|   /boot/efi  or /mnt/efi     |   /dev/sda1   |   EFI system partition   |      +500M         |
+|   /boot or /efi     |   /dev/sda1   |   EFI system partition   |      +500M         |
 |          [SWAP] |         /dev/sda2      |           Linux swap                |      2048 MiB              |
-|                 |   /dev/sda3   |   Linux LVM              |       100%         |
+|          /       |   /dev/sda3   |   Linux x86-64 root (/)               |       Remainder of the device       |
+
+
+## Format the partitions
+https://wiki.archlinux.org/title/EFI_system_partition
+
+to create an Ext4 file system on the root partition, run: 
+```
+# mkfs.ext4 /dev/sda3
+```
+Initialize swap partition with mkswap:
+```
+# mkswap /dev/sda2
+```
+
+https://wiki.archlinux.org/title/File_systems#Create_a_file_system
+
+an EFI system partition must contain a FAT32 file system
+```
+# mkfs.fat -F 32 /dev/sda1
+```
+
+
+
+
+
+## Mount the file systems
+Mount the root volume to /mnt. For example, if the root volume is /dev/rootvol: 
+```
+# mount /dev/volgroup0/rootvol /mnt
+```
+Mount the home volume to /mnt/home. For example, if the home volume is /dev/homevol:
+BUT fisr we have to create the home directory:
+```
+# mkdir /mnt/home
+```
+then
+```
+# mount /dev/volgroup0/homevol /mnt/home
+```
+Create any remaining mount points (such as /mnt/efi) using mkdir and mount their corresponding volumes. 
+```
+# mkdir /boot/EFI
+```
+```
+# mount /dev/sda1 /boot/EFI
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ## LVM building blocks
@@ -155,45 +219,6 @@ or
 ```
 both give the same result.
 
-## Format the partitions
-format the EFI system partition to FAT32 using mkfs.fat. 
-```
-# mkfs.fat -F 32 /dev/sda1
-```
-
-to create an Ext4 file system on /dev/volgroup0/rootvol, run: 
-```
-# mkfs.ext4 /dev/volgroup0/rootvol
-```
-to create an Ext4 file system on /dev/volgroup0/homevol, run: 
-```
-# mkfs.ext4 /dev/volgroup0/homevol
-```
-
-
-
-
-## Mount the file systems
-Mount the root volume to /mnt. For example, if the root volume is /dev/rootvol: 
-```
-# mount /dev/volgroup0/rootvol /mnt
-```
-Mount the home volume to /mnt/home. For example, if the home volume is /dev/homevol:
-BUT fisr we have to create the home directory:
-```
-# mkdir /mnt/home
-```
-then
-```
-# mount /dev/volgroup0/homevol /mnt/home
-```
-Create any remaining mount points (such as /mnt/efi) using mkdir and mount their corresponding volumes. 
-```
-# mkdir /boot/EFI
-```
-```
-# mount /dev/sda1 /boot/EFI
-```
 
 
 
