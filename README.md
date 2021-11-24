@@ -95,7 +95,7 @@ To check the service status, use `timedatectl status`.
 ## Partition the disks
 When recognized by the live system, disks are assigned to a block device such as /dev/sda, /dev/nvme0n1 or /dev/mmcblk0. To identify these devices, use lsblk or fdisk.
 ```
-# fdisk -l
+# lsblk
 ```
 Use fdisk or parted to modify partition tables. For example: 
 ```
