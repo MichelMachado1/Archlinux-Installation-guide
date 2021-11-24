@@ -159,6 +159,7 @@ Enabable the swap partition
 ## Installation
 ## Select the mirrors
 The mirrors are automatically set
+On the live system, after connecting to the internet, reflector updates the mirror list by choosing 20 most recently synchronized HTTPS mirrors and sorting them by download rate. 
 
 ### Install essential packages
 Use the pacstrap script to install the base package, Linux kernel and firmware for common hardware: 
