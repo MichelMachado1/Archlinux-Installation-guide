@@ -117,13 +117,13 @@ an EFI system partition must contain a FAT32 file system
 ```
 Initialize swap partition with mkswap:
 ```
-# mkswap /dev/swap_partition
+# mkswap /dev/sda2
 ```
 https://wiki.archlinux.org/title/EFI_system_partition
 
 to create an Ext4 file system on /dev/root_partition, run: 
 ```
-# mkfs.ext4 /dev/root_partition
+# mkfs.ext4 /dev/sda3
 ```
 
 
