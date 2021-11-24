@@ -138,15 +138,18 @@ https://wiki.archlinux.org/title/File_systems#Create_a_file_system
 ## Mount the file systems
 Mount the root volume to /mnt
 ```
-# mount /dev/root_partition /mnt
+# mount /dev/sda3 /mnt
 ```
-mount the EFI system partition: 
+mount the EFI system partition:
+
 ```
-# mount /dev/efi_system_partition /mnt/boot
+# mkdir /mnt/boot
+
+# mount /dev/sda1 /mnt/boot
 ```
 Enabable the swap partition
 ```
-# swapon /dev/swap_partition
+# swapon /dev/sda2
 ```
 
 
