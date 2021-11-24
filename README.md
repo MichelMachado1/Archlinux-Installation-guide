@@ -166,63 +166,13 @@ Use the pacstrap script to install the base package, Linux kernel and firmware f
 ```
 # pacstrap /mnt base linux linux-firmware
 ```
-> you can install linux-lts instead if linux or both
-
-other essential packages
-```
-# pacman -S linux-headers
-```
-> you can install linux-lts-headers instead or both
 
 a text editor
 ```
 # pacman -S vim
 ```
-almost essential packages include sudo cmd
-```
-# pacman -S base-devel
-```
-wifi pakage support
-```
-# pacman  -S networkmanager wpa_supplicant wireless_tools dialog
-```
-auto start NetworkManager
-```
-# systemctl enable NetworkManager
-```
-lvm support REQUIRED for hard drive
-```
-pacman -S lvm2
-```
-Xorg provides an interface between your hardware and the graphical software you want to run.
-```
-pacman -S xorg-server
-```
-video driver
-```
-pacman -S mesa
-```
-<details><summary># vim /etc/mkinitcpio.conf</summary>
-<p>
- 
-insert **lvm2** inside HOOKS between block and filesystems
- 
-#### HOOKS=(base udev autodetect modconf block _lvm2_ filesystems keyboard fsck)
 
-</p>
-</details>
 
-make the options take effect
-```
-# mkinitcpio -p linux
-```
-## Configure the system
-### Fstab
-
-Generate an fstab file: 
-```
-mkdir /mnt/etc
-```
 ```
 # genfstab -U -p /mnt >> /mnt/etc/fstab
 ```
@@ -288,13 +238,7 @@ vim /etc/hostname
 
 myhostname
 ```
-Create the hosts file
-```
-vim /etc/hosts
 
-127.0.0.1 localhost
-127.0.1.1 myhostname
-```
 
 ## Root password
 
@@ -302,26 +246,6 @@ Set the root password:
 ```
 # passwd
 ```
-recommanded: add a standard user for yourself
-```
-useradd -m -g USERS -G wheel michel
-```
-michel is my name put your name instead.
-add password for yourself
-```
-passwd michel
-```
-
-<details><summary># visudo</summary>
-<p>
- 
- Uncomment to allow members of group wheel to execute any command
-#### %wheel ALL=(ALL) ALL
-
-</p>
-</details>
-
-
 
 ## Boot loader
 
@@ -332,10 +256,11 @@ Choose and install a Linux-capable boot loader. If you have an Intel or AMD CPU,
 amd-ucode for AMD processors
 source: https://wiki.archlinux.org/title/Microcode#Early_loading
 ```
-# pacman -S grub efibootmgr dosfstools os-proger mtools
+# pacman -S grub efibootmgr 
 ```
 ```
-# grub-install --target=x86_64-efi --bootloader-id=grub_uefi --recheck
+# grub-install --target=x86_64-efi --efi-directory=/dev/sda1 --bootloader-id=GRUB
+
 ```
 source: https://wiki.archlinux.org/title/GRUB#Installation_2
 check for the locale directory
