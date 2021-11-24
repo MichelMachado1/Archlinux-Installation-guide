@@ -250,20 +250,18 @@ Set the root password:
 ## Boot loader
 
 Choose and install a Linux-capable boot loader. If you have an Intel or AMD CPU, enable microcode updates in addition. 
-```
-# pacman -S intel-ucode
-```
+
 amd-ucode for AMD processors
-source: https://wiki.archlinux.org/title/Microcode#Early_loading
+
 ```
 # pacman -S grub efibootmgr 
 ```
 ```
 # grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
-
-
+# pacman -S intel-ucode
+# grub-mkconfig -o /boot/grub/grub.cfg
 ```
-source: https://wiki.archlinux.org/title/GRUB#Installation_2
+
 check for the locale directory
 ```
 # ls -l /boot/grub
@@ -287,36 +285,7 @@ Finally, restart the machine by typing reboot: any partitions still mounted will
 
 # AFTER REBOOT 
 
-### Swap file creation
-> source: https://wiki.archlinux.org/title/Swap
-```
-# dd if=/dev/zero of=/swapfile bs=1M count=2048 status=progress
-```
-Set the right permissions (a world-readable swap file is a huge local vulnerability): 
-```
-# chmod 600 /swapfile
-```
-After creating the correctly sized file, format it to swap: 
-```
-# mkswap /swapfile
-```
-optional:
-Making a backup copy of the fstabfile in case of mistake
-```
-# cp /etc/fstab /etc/fstab.bak
-```
-Finally, edit the fstab configuration to add an entry for the swap file: 
-```
-echo '/swapfile none swap sw 0 0' | tee -a /etc/fstab
-```
-activate
-```
-# swapon -a
-```
-check with free -m
 
-other sources : <br/> LearLinuxTV
-https://youtu.be/DPLnBPM4DhI 
 
 
 
