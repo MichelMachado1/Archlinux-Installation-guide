@@ -158,16 +158,7 @@ Enabable the swap partition
 
 ## Installation
 ## Select the mirrors
-
-To use the French mirror as a default mirror, add this before the Include line: 
-```
-vim /etc/pacman.conf
-
-[core]
-https://archlinux.mailtunnel.eu/
-Include = /etc/pacman.d/mirrorlist
-```
-https://wiki.archlinux.org/title/Mirrors#Enabling_a_specific_mirror
+The mirrors are automatically set
 
 ### Install essential packages
 Use the pacstrap script to install the base package, Linux kernel and firmware for common hardware: 
