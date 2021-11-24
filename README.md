@@ -64,21 +64,25 @@ If you are on a laptop, you can connect to a wireless access point using `iwctl`
 
 Scan for network.
 ```
-# iwctl station wlan0 scan
+# iwd station wlan0 scan
 ```
 Get the list of scanned networks by:
 ```
-# iwctl station wlan0 get-networks
+# iwd station wlan0 get-networks
 ```
 Connect to your network.
 ```
-# station wlan0 connect "NETWORKNAME"
+# iwd station wlan0 connect "NETWORKNAME"
 ```
-
-Test internet with Google Public DNS to make sure we are online:
+exit the iwd with the exit command
 ```
-# ping -c 5 8.8.8.8
+# iwd exit
+```
+The connection may be verified with ping: 
+```
+# ping archlinux.org
 ``` 
+ctrl + c to exit.
 
 ## Update the system clock
 Use `timedatectl` to ensure the system clock is accurate:
