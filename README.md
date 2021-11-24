@@ -259,7 +259,8 @@ source: https://wiki.archlinux.org/title/Microcode#Early_loading
 # pacman -S grub efibootmgr 
 ```
 ```
-# grub-install --target=x86_64-efi --efi-directory=/dev/sda1 --bootloader-id=GRUB
+# grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
+
 
 ```
 source: https://wiki.archlinux.org/title/GRUB#Installation_2
