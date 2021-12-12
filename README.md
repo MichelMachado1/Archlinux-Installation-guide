@@ -8,7 +8,7 @@ Archlinux Installation guide UEFI with swap partition
 
     
     * [Keymap](#keymap)
-    Internet
+    * [Internet](#verify-the-boot-mode)
     Mirrors
     Partitioning
     Formatting
