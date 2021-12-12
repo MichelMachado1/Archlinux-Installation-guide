@@ -7,35 +7,27 @@ Archlinux Installation guide UEFI with swap partition
 
 
     
-        Set the console keyboard layout
-        Verify the boot mode
-        Connect to the internet
-        Update the system clock
-        Partition the disks
-        Example layouts
-        Format the partitions
-        Mount the file systems
-        Installation
-        Select the mirrors
-        Install essential packages
-   Configure the system
-        Fstab
-        Chroot
-        Time zone
-        Localization
-        Network configuration
-        Initramfs
-        Root password
-        Boot loader
-     Reboot
-     Post-installation
-
-
-
-
-
-
-
+    Keymap
+    Internet
+    Mirrors
+    Partitioning
+    Formatting
+    Mounting
+    Base Install
+    FSTAB
+    Chroot
+    Swapfile
+    Locales
+    Hostname
+    Password
+    GRUB
+    Enable Services
+    New User
+    Reboot
+    Internet
+    Graphics Driver
+    YAY
+    
 
 
 
