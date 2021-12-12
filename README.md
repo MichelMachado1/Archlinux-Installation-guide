@@ -1,4 +1,5 @@
-Sommaire
+
+Arch Linux Base Install on UEFI 
 ========
 
    * [Keymap](#keymap)
@@ -27,14 +28,12 @@ Sommaire
 
 
 
-
-Créé par [MichelMachado1](https://github.com/MichelMachado1)
+by [MichelMachado1](https://github.com/MichelMachado1)
 
 <!---
 BEGIN
 -->
 
-Arch Linux Base Install on UEFI 
 ==================================================================================================================
 
 ## Keymap
