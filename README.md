@@ -8,7 +8,7 @@ Arch Linux Base Install on UEFI
    * [Partitioning](#Partitioning)</br>
    * [Formatting](#Formatting)</br>
    * [Mounting](#Mounting)
-   * [Base Install](#Base Install)
+   * [Base Install](#Base_Installation)
    * [FSTAB](#FSTAB)
    * [Chroot](#Chroot)
    * [Locales](#Locales)
@@ -158,7 +158,7 @@ Enabable the swap partition
 
 
 
-## Base Install
+## Base_Installation
 
 
 ### Install essential packages
