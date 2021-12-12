@@ -7,7 +7,7 @@ Archlinux Installation guide UEFI with swap partition
 
 
     
-    1) ![Kemap](#keymap)
+    * [Kemap](#keymap)
     Internet
     Mirrors
     Partitioning
