@@ -7,7 +7,7 @@ Archlinux Installation guide UEFI with swap partition
 
 
     
-    [Keymap](https://github.com/MichelMachado1/Archlinux-Installation-guide/blob/main/README.md#keymap)
+    1)[Keymap](https://github.com/MichelMachado1/Archlinux-Installation-guide/blob/main/README.md#keymap).
     Internet
     Mirrors
     Partitioning
