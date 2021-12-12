@@ -11,7 +11,6 @@ Arch Linux Base Install on UEFI
    * [Base Install](#Base Install)
    * [FSTAB](#FSTAB)
    * [Chroot](#Chroot)
-   * [Swapfile](#Swapfile)
    * [Locales](#Locales)
    * [Hostname](#Hostname)
    * [Password](#Password)
@@ -138,7 +137,7 @@ https://wiki.archlinux.org/title/File_systems#Create_a_file_system
 
 
 
-## Mount the file systems
+## Mounting
 Mount the root volume to /mnt
 ```
 # mount /dev/sda3 /mnt
@@ -159,21 +158,18 @@ Enabable the swap partition
 
 
 
-## Installation
+## Base Install
 
 
 ### Install essential packages
 Use the pacstrap script to install the base package, Linux kernel and firmware for common hardware: 
 ```
-# pacstrap /mnt base linux linux-firmware
-```
-
-a text editor
-```
-# pacman -S vim
+# pacstrap /mnt base linux linux-firmware intel-ucode vim
 ```
 
 
+
+## FSTAB
 ```
 # genfstab -U -p /mnt >> /mnt/etc/fstab
 ```
