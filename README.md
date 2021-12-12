@@ -1,39 +1,29 @@
-# Archlinux-Installation-guide
-Archlinux Installation guide UEFI with swap partition
-
-
-
 Sommaire
 ========
-    
-    * [Keymap](#keymap)
-    * [Internet](#verify-the-boot-mode)
-    Mirrors
-    Partitioning
-    Formatting
-    Mounting
-    Base Install
-    FSTAB
-    Chroot
-    Swapfile
-    Locales
-    Hostname
-    Password
-    GRUB
-    Enable Services
-    New User
-    Reboot
-    Internet
-    Graphics Driver
-    YAY
-    
+
+   * [Keymap](#keymap)
+      * [I) Installons notre base](#i-installons-notre-base)</br>
+            * [Partitionnement et attribution des partitions en mode Bios :](#partitionnement-et-attribution-des-partitions-en-mode-bios)</br>
+            * [Partitionnement et attribution des partitions en mode UEFI :](#partitionnement-et-attribution-des-partitions-en-mode-uefi)</br>
+            * [Installation de la base de notre Archlinux :](#installation-de-la-base-de-notre-archlinux)</br>
+      * [II) Installons maintenant l’environnement graphique !](#ii-installons-maintenant-lenvironnement-graphique)
+      * [III) Finalisons l’installation de Gnome.](#iii-finalisons-linstallation-de-gnome)
+      * [IV) Addendum 1 : installer Plasma 5.16.x](#iv-addendum-1-installer-plasma-516x)
+      * [V) Addendum 2 : installer Xfce](#v-addendum-2-installer-xfce)
+      * [VI) Addendum 3 : installer Mate-Desktop](#vi-addendum-3-installer-mate-desktop)
+      * [VII) Addendum 4 : installer Deepin-Desktop](#vii-addendum-4-installer-deepin-desktop)
+      * [VIII) Addendum 5 : installer Cinnamon](#viii-addendum-5-installer-cinnamon)
+
+Créé par [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
 
 <!---
 BEGIN
 -->
 
+Petit guide d’installation d’Archlinux avec Gnome 3.32.x / Plasma 5.15.6 / Xfce / Mate-Desktop / Deepin / Cinnamon
+==================================================================================================================
 
-
+Dans ce petit guide, je vais détailler l’installation d’Archlinux avec Gnome 3.32 et suivant, Plasma 5.16.x, Xfce, Mate-Desktop, Deepin et Cinnamon. L’installation terminée proposera un environnement suffisamment étoffé pour être utilisable.
 ## Keymap
 The default console keymap is US. Set the azerty layout with:
 ```
