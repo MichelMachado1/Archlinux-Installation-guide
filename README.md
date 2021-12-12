@@ -34,10 +34,9 @@ Créé par [MichelMachado1](https://github.com/MichelMachado1)
 BEGIN
 -->
 
-Petit guide d’installation d’Archlinux avec Gnome 3.32.x / Plasma 5.15.6 / Xfce / Mate-Desktop / Deepin / Cinnamon
+Arch Linux Base Install on UEFI 
 ==================================================================================================================
 
-Dans ce petit guide, je vais détailler l’installation d’Archlinux avec Gnome 3.32 et suivant, Plasma 5.16.x, Xfce, Mate-Desktop, Deepin et Cinnamon. L’installation terminée proposera un environnement suffisamment étoffé pour être utilisable.
 ## Keymap
 The default console keymap is US. Set the azerty layout with:
 ```
