@@ -7,7 +7,7 @@ Archlinux Installation guide UEFI with swap partition
 
 
     
-    1) ![GitHub Light](https://github.com/github-light.png#gh-dark-mode-only)
+    1) ![Kemap](#keymap)
     Internet
     Mirrors
     Partitioning
