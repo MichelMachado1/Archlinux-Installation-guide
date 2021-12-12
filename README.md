@@ -2,17 +2,31 @@ Sommaire
 ========
 
    * [Keymap](#keymap)
-      * [I) Installons notre base](#i-installons-notre-base)</br>
-            * [Partitionnement et attribution des partitions en mode Bios :](#partitionnement-et-attribution-des-partitions-en-mode-bios)</br>
-            * [Partitionnement et attribution des partitions en mode UEFI :](#partitionnement-et-attribution-des-partitions-en-mode-uefi)</br>
-            * [Installation de la base de notre Archlinux :](#installation-de-la-base-de-notre-archlinux)</br>
-      * [II) Installons maintenant l’environnement graphique !](#ii-installons-maintenant-lenvironnement-graphique)
-      * [III) Finalisons l’installation de Gnome.](#iii-finalisons-linstallation-de-gnome)
-      * [IV) Addendum 1 : installer Plasma 5.16.x](#iv-addendum-1-installer-plasma-516x)
-      * [V) Addendum 2 : installer Xfce](#v-addendum-2-installer-xfce)
-      * [VI) Addendum 3 : installer Mate-Desktop](#vi-addendum-3-installer-mate-desktop)
-      * [VII) Addendum 4 : installer Deepin-Desktop](#vii-addendum-4-installer-deepin-desktop)
-      * [VIII) Addendum 5 : installer Cinnamon](#viii-addendum-5-installer-cinnamon)
+   * [Internet](#Internet)</br>
+   * [Mirrors](#Mirrors)</br>
+   * [Partitioning](#Partitioning)</br>
+   * [Formatting](#Formatting)</br>
+   * [Mounting](#Mounting)
+   * [Base Install](#Base Install)
+   * [FSTAB](#FSTAB)
+   * [Chroot](#Chroot)
+   * [Swapfile](#Swapfile)
+   * [Locales](#Locales)
+   * [Hostname](#Hostname)
+   * [Password](#Password)
+   * [GRUB](#GRUB)
+   * [Enable Services](#Enable Services)
+   * [New User](#New User)
+   * [Reboot](#Reboot)
+   * [Internet](#Internet)
+   * [Graphics Driver](#Graphics Driver)
+   * [YAY](#YAY)
+
+
+
+
+
+
 
 Créé par [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
 
