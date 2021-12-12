@@ -28,7 +28,7 @@ Sommaire
 
 
 
-Créé par [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
+Créé par [MichelMachado1](https://github.com/MichelMachado1)
 
 <!---
 BEGIN
