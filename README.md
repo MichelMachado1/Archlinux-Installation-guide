@@ -211,7 +211,7 @@ Run hwclock to generate /etc/adjtime:
 
 
 
-## Localization
+## Locales
 Edit /etc/locale.gen and uncomment en_US.UTF-8 UTF-8 and other needed locales. Generate the locales by running: 
 ```
 # locale-gen
@@ -227,7 +227,7 @@ Make the keyboard layout changes persistent in vconsole.conf:
 |  KEYMAP=fr-latin1 |
 
 
-## Network configuration
+## Hostname
 
 Create the hostname file:
 ```
@@ -237,21 +237,21 @@ myhostname
 ```
 
 
-## Root password
+## Password
 
 Set the root password:
 ```
 # passwd
 ```
 
-## Boot loader
+## GRUB
 
 Choose and install a Linux-capable boot loader. If you have an Intel or AMD CPU, enable microcode updates in addition. 
 
 amd-ucode for AMD processors
 
 ```
-# pacman -S grub efibootmgr 
+# pacman -S grub efibootmgr networkmanager network-manager-applet wireless_tools wpa_supplicant dialog os_prober mtools dosfstools base-devel linux-headers bluez bluez-utils cups git pulseaudio pulseaudio-bluetooth pulseaudio-alsa pulseaudio-equalizer pulseaudio-jack xdg-utils xdg-user-dirs
 ```
 ```
 # grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
