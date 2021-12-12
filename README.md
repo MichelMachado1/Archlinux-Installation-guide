@@ -28,7 +28,7 @@ Arch Linux Base Install on UEFI
 
 
 
-by [MichelMachado1](https://github.com/MichelMachado1)
+*by [MichelMachado1](https://github.com/MichelMachado1)
 
 <!---
 BEGIN
