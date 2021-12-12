@@ -33,7 +33,7 @@ Archlinux Installation guide UEFI with swap partition
 
 
 
-## Set the keyboard layout
+## Keymap
 The default console keymap is US. Set the azerty layout with:
 ```
 # loadkeys fr-latin1
