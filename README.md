@@ -84,10 +84,10 @@ Use `timedatectl` to ensure the system clock is accurate:
 ```
 To check the service status, use `timedatectl status`.
 
-## Select the mirrors
+## Mirrors
 reflector -c France -a 6 --sort rate --save /etc/pacman.d/mirrorlist
 
-## Partition the disks
+## Partitioning
 
 ## Verify the boot mode
 To verify the boot mode, list the efivars directory: 
@@ -108,7 +108,7 @@ https://wiki.archlinux.org/title/Partitioning#UEFI/GPT_layout_example
 
 |   Mount point   |   Partition   |   Partition type         |   Suggested size   |
 |   ------------- | ------------- | ---------------------    | ------------------ |
-|   /boot or /efi     |   /dev/sda1   |   EFI system partition   |      +500M         |
+|   /boot or /efi     |   /dev/sda1   |   EFI system partition   |      +300M         |
 |          [SWAP] |         /dev/sda2      |           Linux swap                |      2048 MiB              |
 |          /mnt       |   /dev/sda3   |   Linux x86-64 root (/)               |       Remainder of the device       |
 
