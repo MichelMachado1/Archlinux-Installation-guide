@@ -1,11 +1,10 @@
 # Archlinux-Installation-guide
 Archlinux Installation guide UEFI with swap partition
 
-<br/> https://wiki.archlinux.org/title/installation_guide 
 
 
-
-
+Sommaire
+========
     
     * [Keymap](#keymap)
     * [Internet](#verify-the-boot-mode)
@@ -29,7 +28,9 @@ Archlinux Installation guide UEFI with swap partition
     YAY
     
 
-
+<!---
+BEGIN
+-->
 
 
 
