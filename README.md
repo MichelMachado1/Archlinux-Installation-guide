@@ -16,7 +16,7 @@ Arch Linux Base Install on UEFI
    * [Password](#Password)
    * [GRUB](#GRUB)
    * [Enable Services](#Enable Services)
-   * [New User](#New User)
+   * [New User](#New_User)
    * [Reboot](#Reboot)
    * [Internet](#Internet)
    * [Graphics Driver](#Graphics Driver)
@@ -280,6 +280,12 @@ systemctl enable bluetooth
 ```
 systemctl enable cups.service
 ```
+
+## New_User
+```
+useradd -mG wheel michel
+```
+
 ## Reboot
 
 Exit the chroot environment by typing exit or pressing Ctrl+d.
