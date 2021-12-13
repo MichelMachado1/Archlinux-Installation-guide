@@ -285,7 +285,10 @@ systemctl enable cups.service
 ```
 useradd -mG wheel michel
 ```
-
+```
+passwd
+```
+visudo, uncomment %wheel ALL=(ALL) ALL
 ## Reboot
 
 Exit the chroot environment by typing exit or pressing Ctrl+d.
