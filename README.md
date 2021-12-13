@@ -255,7 +255,6 @@ amd-ucode for AMD processors
 ```
 ```
 # grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
-# pacman -S intel-ucode
 # grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
@@ -271,7 +270,16 @@ generate the grub configuration file
 ```
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
-
+## Enable Services
+```
+systemctl enable NetworkManager
+```
+```
+systemctl enable bluetooth
+```
+```
+systemctl enable cups.service
+```
 ## Reboot
 
 Exit the chroot environment by typing exit or pressing Ctrl+d.
