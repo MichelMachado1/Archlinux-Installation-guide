@@ -286,7 +286,7 @@ systemctl enable cups.service
 useradd -mG wheel michel
 ```
 ```
-passwd
+passwd michel
 ```
 visudo, uncomment %wheel ALL=(ALL) ALL
 ## Reboot
